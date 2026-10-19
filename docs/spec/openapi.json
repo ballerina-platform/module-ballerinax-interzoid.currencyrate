@@ -1,0 +1,214 @@
+
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Get Live Currency Rate API",
+    "description": "This API provides real-time currency exchange rates for a specified currency symbol, leveraging up-to-date financial data sources.\nTo use this API, you need an API key. Register for an API key at [Interzoid Registration](https://www.interzoid.com/register-api-account).\nFor more information about this API, visit the [Interzoid Live Currency Exchange Rates API Documentation](https://www.interzoid.com/apis/live-currency-exchange-rates).\nYou can also try this API [interactively](https://try.interzoid.com) or in high-speed [batch mode](https://batch.interzoid.com).\n",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Interzoid Support",
+      "url": "https://www.interzoid.com",
+      "email": "support@interzoid.com"
+    }
+  },
+  "externalDocs": {
+    "description": "API home page and documentation",
+    "url": "https://www.interzoid.com/apis/live-currency-exchange-rates"
+  },
+  "servers": [
+    {
+      "url": "https://api.interzoid.com",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Currency Exchange Rate",
+      "description": "Provides live currency exchange rates for specified currency symbols."
+    }
+  ],
+  "paths": {
+    "/getcurrencyrate": {
+      "get": {
+        "operationId": "getCurrencyRate",
+        "tags": [
+          "Currency Exchange Rate"
+        ],
+        "summary": "Retrieve Live Currency Exchange Rate",
+        "description": "Retrieves the current exchange rate for a given currency symbol. Include your API key (license) in the request. Register for an API key at https://www.interzoid.com/register-api-account.\n",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": true,
+            "description": "The currency symbol for which the exchange rate is retrieved (e.g., EUR, USD).",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "currencySymbol": {
+                "summary": "Currency Symbol Example",
+                "value": "EUR"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response containing the currency exchange rate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Symbol": {
+                      "type": "string",
+                      "description": "The requested currency symbol."
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "The full name of the currency."
+                    },
+                    "Country": {
+                      "type": "string",
+                      "description": "The country or region associated with the currency."
+                    },
+                    "Rate": {
+                      "type": "string",
+                      "description": "The current exchange rate relative to a base currency."
+                    },
+                    "Code": {
+                      "type": "string",
+                      "description": "Response code, \"Success\" if the call is successful."
+                    },
+                    "Credits": {
+                      "type": "integer",
+                      "description": "Remaining credits for your API license."
+                    }
+                  }
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "Symbol": "EUR",
+                      "Name": "Euro",
+                      "Country": "European Union",
+                      "Rate": "0.872",
+                      "Code": "Success",
+                      "Credits": 7910
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request (e.g., missing or invalid parameters).",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "error": {
+                    "value": "Invalid license key or currency symbol missing."
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "API key not found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "error": {
+                    "value": "API key not found."
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Insufficient API credits remaining.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "error": {
+                    "value": "Insufficient API credits remaining."
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "error": {
+                    "value": "Method not allowed."
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limits reached.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "error": {
+                    "value": "Rate limits reached."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "error": {
+                    "value": "Internal server error."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "name": "license",
+        "in": "query"
+      }
+    },
+    "schemas": {}
+  },
+  "security": [
+    {
+      "apiKeyAuth": []
+    }
+  ]
+}

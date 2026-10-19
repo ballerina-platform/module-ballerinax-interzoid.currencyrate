@@ -43,8 +43,6 @@ public type CurrencyRate record {
 
 # Represents the Queries record for the operation: getCurrencyRate
 public type GetCurrencyRateQueries record {
-    # Your API license key. Register for an API key at [Interzoid Registration](https://www.interzoid.com/register-api-account)
-    string license;
     # The currency symbol for which the exchange rate is retrieved (e.g., EUR, USD)
     string symbol;
 };

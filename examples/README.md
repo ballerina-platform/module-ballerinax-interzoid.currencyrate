@@ -7,7 +7,7 @@ The `ballerinax/interzoid.currencyrate` connector provides practical examples il
 
 ## Prerequisites
 
-Obtain an Interzoid API license key by registering at [Interzoid](https://www.interzoid.com/register-api-account), and push the connector to the local repository with `bal pack && bal push --repository=local`.
+Obtain an Interzoid API license key by registering at [Interzoid](https://www.interzoid.com/register-api-account), and push the connector to the local repository by running `bal pack` and then `bal push --repository=local` from the connector directory that contains `Ballerina.toml` (`ballerina/`). Then return to an example directory to run it with `bal run`.
 
 ## Running an example
 

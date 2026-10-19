@@ -38,21 +38,6 @@
         "description": "Retrieves the current exchange rate for a given currency symbol. Include your API key (license) in the request. Register for an API key at https://www.interzoid.com/register-api-account.\n",
         "parameters": [
           {
-            "name": "license",
-            "in": "query",
-            "required": true,
-            "description": "Your API license key. Register for an API key at [Interzoid Registration](https://www.interzoid.com/register-api-account).\n",
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "license": {
-                "summary": "API Key Example",
-                "value": "r2d7df664a7c4ef6h8k"
-              }
-            }
-          },
-          {
             "name": "symbol",
             "in": "query",
             "required": true,

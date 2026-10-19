@@ -8,7 +8,7 @@ configurable string currencySymbol = "EUR";
 public function main() returns error? {
     currencyrate:Client interzoid = check new ({license: licenseKey});
 
-    currencyrate:CurrencyRate rate = check interzoid->getCurrencyRate(license = licenseKey, symbol = currencySymbol);
+    currencyrate:CurrencyRate rate = check interzoid->getCurrencyRate(symbol = currencySymbol);
 
     string code = rate.code ?: "";
     if code != "Success" {

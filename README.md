@@ -44,7 +44,7 @@ final currencyrate:Client interzoid = check new ({license: licenseKey});
 
 ```ballerina
 public function main() returns error? {
-    currencyrate:CurrencyRate _ = check interzoid->getCurrencyRate(license = licenseKey, symbol = "EUR");
+    currencyrate:CurrencyRate _ = check interzoid->getCurrencyRate(symbol = "EUR");
 }
 ```
 

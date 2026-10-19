@@ -12,13 +12,17 @@ public function main() returns error? {
     map<string> report = {};
     foreach string entry in regexp:split(re `,`, currencySymbols) {
         string symbol = entry.trim();
-        currencyrate:CurrencyRate rate = check interzoid->getCurrencyRate(license = licenseKey, symbol = symbol);
+        if symbol == "" {
+            continue;
+        }
+        currencyrate:CurrencyRate rate = check interzoid->getCurrencyRate(symbol = symbol);
         string? value = rate.rate;
         if value is () {
             return error("No rate returned for " + symbol);
         }
         report[symbol] = value;
-        if (rate.credits ?: 0) <= 0 {
+        int? credits = rate.credits;
+        if credits is int && credits <= 0 {
             io:println("API credits exhausted, stopping early.");
             break;
         }

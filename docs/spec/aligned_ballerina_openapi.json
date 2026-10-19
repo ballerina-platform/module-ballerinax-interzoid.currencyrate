@@ -42,23 +42,6 @@
                 "operationId": "getCurrencyRate",
                 "parameters": [
                     {
-                        "name": "license",
-                        "in": "query",
-                        "description": "Your API license key. Register for an API key at [Interzoid Registration](https://www.interzoid.com/register-api-account)\n",
-                        "required": true,
-                        "style": "form",
-                        "explode": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "examples": {
-                            "license": {
-                                "summary": "API Key Example",
-                                "value": "r2d7df664a7c4ef6h8k"
-                            }
-                        }
-                    },
-                    {
                         "name": "symbol",
                         "in": "query",
                         "description": "The currency symbol for which the exchange rate is retrieved (e.g., EUR, USD)",

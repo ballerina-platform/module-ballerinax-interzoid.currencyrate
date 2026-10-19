@@ -26,7 +26,10 @@ final Client interzoid = check new ({license: licenseKey}, {httpVersion: http:HT
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
 isolated function testGetCurrencyRate() returns error? {
-    CurrencyRate response = check interzoid->getCurrencyRate(symbol = "EUR", license = licenseKey);
-    test:assertTrue(response?.symbol !is ());
+    CurrencyRate response = check interzoid->getCurrencyRate(symbol = "EUR");
+    test:assertEquals(response?.symbol, "EUR");
     test:assertTrue(response?.rate !is ());
+    if !isLiveServer {
+        test:assertEquals(response?.rate, "0.872");
+    }
 }

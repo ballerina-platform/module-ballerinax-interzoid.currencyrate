@@ -2,13 +2,12 @@
 
 The `ballerinax/interzoid.currencyrate` connector provides practical examples illustrating usage in various scenarios.
 
-[//]: # (TODO: Add examples)
-1. 
-2. 
+1. [Currency rate lookup](./currency_rate_lookup/currency_rate_lookup.md) - Look up the live exchange rate for a single currency.
+2. [Multi-currency rate report](./multi_currency_rate_report/multi_currency_rate_report.md) - Build a rate report for several currencies.
 
 ## Prerequisites
 
-[//]: # (TODO: Add prerequisites)
+Obtain an Interzoid API license key by registering at [Interzoid](https://www.interzoid.com/register-api-account), and push the connector to the local repository with `bal pack && bal push --repository=local`.
 
 ## Running an example
 
